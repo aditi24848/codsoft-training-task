@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Personal Landing </title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header id="site-header" class="header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="#home"><span class="logo">Online Portfolio</span></a>
+        <small class="tag">Learning MERN, shipping projects, applying DSA</small>
+      </div>
+
+      <nav id="main-nav" class="nav">
+        <ul>
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <!-- <li><a href="#works" class="nav-link">Works</a></li> -->
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button id="hamburger" aria-label="Toggle menu" class="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1 class="name">Aditi Saini</h1>
+        <p class="lead">
+        Hi — I’m a final-year BTech CS student building clean, accessible web apps.
+               I’m learning the MERN stack and shipping projects to prepare for full-stack roles.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Hire Me</a>
+          <a class="btn ghost" href="#about">View About</a>
+        </div>
+      </div>
+
+      <div class="hero-image" aria-hidden="true">
+         <!-- big background image -->
+        <div class="hero-bg"></div>
+      </div>
+    </div>
+
+    <!-- overlapping portrait -->
+    <!-- <img src="images/portrait.jpg" alt="portrait" class="portrait" /> -->
+  </section> 
+
+  <!-- ABOUT -->
+  <section id="about" class="section about reveal">
+    <div class="container about-grid">
+      <div class="about-img" aria-hidden="true">
+        <img src="images/logojpg.jpg" alt="About portrait">
+      </div>
+
+      <div class="about-content">
+        <h2 style="color: white;">ABOUT ME</h2>
+        <p class="about-lead">A recent CS student developing practical web projects and learning modern full-stack tools</p>
+        <p style="color: darkgray;">
+            Aspiring Software Developer passionate about crafting user-friendly, efficient web applications.
+              Skilled in frontend technologies with hands-on project experience in both academic and internship settings.
+          I use programming languages and tools to create, maintain, and test applications. As a fresher, 
+          I apply the SDLC (plan → design → build → test → deploy) while learning through hands-on projects.
+        </p>
+        <div style="margin-top:18px;">
+          <a class="btn primary" href="images/aditisaini.pdf" download>Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES (dummy) -->
+  <section id="services" class="section services reveal">
+    <div class="container">
+      <h2 style="color: white;">Services</h2>
+      <div class="services-grid">
+        <div class="card">Web Development</div>
+        <div class="card">Frontend Development</div>
+        <div class="card">Backend basics</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS (dummy)
+  <section id="works" class="section works reveal">
+    <div class="container">
+      <h2>Selected Works</h2>
+      <p>Some of my recent projects — thumbnails or links go here.</p>
+    </div>
+  </section> -->
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Get in touch</h3>
+          <p><i class="fa-solid fa-paper-plane"></i> Email: aditisaini2403@example.com</p>
+        </div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/aditi-saini-095964253/" class="small-btn"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+          <a href="https://github.com/aditi24848" class="small-btn"><i class="fa-brands fa-github"></i>GitHub</a>
+        </div>
+      </div>
+
+      <p class="copyright">© <span id="year"></span> Aditi Saini — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
