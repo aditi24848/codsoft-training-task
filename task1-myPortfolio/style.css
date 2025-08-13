@@ -1,0 +1,559 @@
+/* ===== Global Reset ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080808;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Container */
+.container {
+    padding: 18px 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* NAV / HEADER */
+.header-inner {
+    padding: 18px 0 40px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    width: 140px;
+    object-fit: contain;
+}
+
+/* Desktop links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    position: relative;
+    padding: 6px 0;
+}
+
+.nav-links a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: width .35s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* hide menu buttons by default (desktop) */
+.menu-btn,
+.close-item {
+    display: none;
+    border: none;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+/* Header text (hero) */
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 6vh;
+    max-width: 680px;
+}
+
+.role {
+    color: #ababab;
+    font-size: 16px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.05;
+}
+
+.hero h1 span {
+    color: #ff004f;
+}
+
+.lead {
+    color: #bdbdbd;
+}
+
+/* hero CTA */
+.hero-cta {
+    margin-top: 12px;
+}
+
+.btn {
+    display: inline-block;
+    border: 1px solid #ff004f;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.btn:hover {
+    background: #ff004f;
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(255, 0, 79, 0.12);
+}
+
+.btn.cta {
+    background: #ff004f;
+    border: none;
+}
+
+/* ABOUT */
+#about {
+    padding: 60px 0;
+    color: #ababab;
+}
+
+/* About row: layout + transitions */
+.about-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.about-col-1 {
+    flex: 1 1 35%;
+    transition: transform .35s ease, box-shadow .35s ease;
+    will-change: transform;
+}
+
+.about-col-1 img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    transition: transform .35s ease;
+}
+
+/* right content */
+.about-col-2 {
+    flex: 1 1 60%;
+    padding: 18px;
+    border-radius: 10px;
+    transition: transform .35s ease, box-shadow .35s ease, background .35s ease;
+    background: rgba(255, 255, 255, 0.01);
+}
+
+/* subtle hover lift for the about area (desktop) */
+@media (hover: hover) {
+
+    .about-row:hover .about-col-2,
+    .about-col-2:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-row:hover .about-col-1 img,
+    .about-col-1 img:hover {
+        transform: scale(1.03);
+    }
+}
+
+/* text and tabs */
+.sub-title {
+    font-size: 36px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 12px;
+}
+
+.about-desc {
+    color: #d0d0d0;
+    line-height: 1.6;
+}
+
+/* Tabs: underline transition + content transition */
+.tab-titles {
+    display: flex;
+    margin: 20px 0 24px;
+    gap: 20px;
+}
+
+.tab-links {
+    background: transparent;
+    border: none;
+    color: #ddd;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 6px;
+    transition: color .25s ease;
+    position: relative;
+}
+
+.tab-links::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    height: 3px;
+    width: 0;
+    background: #ff004f;
+    transition: width .35s ease;
+}
+
+.tab-links.active-link::after {
+    width: 50%;
+}
+
+.tab-links.active-link {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Tab content: use max-height + opacity for smooth transitions */
+.tab-contents {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height .45s ease, opacity .35s ease;
+    color: #cfcfcf;
+}
+
+.tab-contents.active-tab {
+    max-height: 400px;
+    opacity: 1;
+    padding-bottom: 8px;
+}
+
+/* SERVICES */
+#services {
+    padding: 40px 0;
+}
+
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    margin-top: 22px;
+}
+
+.service-card {
+    background: #262626;
+    padding: 28px;
+    border-radius: 12px;
+    transition: transform .35s ease, box-shadow .35s ease, background .35s ease;
+    will-change: transform;
+    text-align: left;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(255, 0, 79, 0.12);
+    background: linear-gradient(180deg, rgba(255, 4, 79, 0.03), #262626);
+}
+
+.service-icon {
+    font-size: 44px;
+    margin-bottom: 16px;
+    display: block;
+    color: #ff004f;
+}
+
+/* PORTFOLIO */
+#portfolio {
+    padding: 48px 0;
+}
+
+.work-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 22px;
+}
+
+.work {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    background: #111;
+    transition: transform .28s ease;
+}
+
+.work img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform .35s ease;
+}
+
+/* overlay (default subtle) */
+.layer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 18px;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(255, 0, 79, 0.25));
+    color: #fff;
+    transition: background .35s ease, transform .35s ease, box-shadow .35s ease;
+}
+
+/* On hover: image slightly zoom, overlay turns stronger red smoothly */
+.work:hover img {
+    transform: scale(1.06);
+}
+
+.work:hover .layer {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(255, 0, 79, 0.9));
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(255, 0, 79, 0.12);
+}
+
+/* overlay call-to-action */
+.layer .visit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    color: #ff004f;
+    text-decoration: none;
+}
+
+/* Center See More button */
+.center-btn {
+    margin-top: 18px;
+    text-align: center;
+}
+
+/* Buttons (general) */
+.btn {
+    display: inline-block;
+    border: 1px solid #ff004f;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.btn:hover {
+    background: #ff004f;
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(255, 0, 79, 0.12);
+}
+
+.btn.cta {
+    background: #ff004f;
+    border: none;
+}
+
+.btn2 {
+    background: #ff004f;
+    color: #fff;
+    border: none;
+}
+
+/* CONTACT (two-column layout) */
+#contact {
+    padding: 50px 0;
+}
+
+.contact-row {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* ensure left is smaller and right (form) is larger on desktop */
+.contact-left {
+    flex: 1 1 38%;
+}
+
+.contact-right {
+    flex: 1 1 58%;
+}
+
+/* contact styles */
+.contact-left p {
+    margin-top: 18px;
+    color: #ddd;
+}
+
+.contact-left p i {
+    color: #ff004f;
+    margin-right: 10px;
+}
+
+.social-icons {
+    margin-top: 16px;
+}
+
+.social-icons a {
+    color: #ababab;
+    font-size: 22px;
+    margin-right: 12px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform .25s ease;
+}
+
+.social-icons a:hover {
+    color: #ff004f;
+    transform: translateY(-4px);
+}
+
+/* form controls */
+form input,
+form textarea {
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 12px;
+    margin: 12px 0;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+form button {
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background: #ff004f;
+    color: #fff;
+    border-radius: 8px;
+}
+
+/* small message text */
+#masg {
+    color: #61b752;
+    display: block;
+    margin-top: 8px;
+}
+
+/* Footer */
+.copyright {
+    text-align: center;
+    padding: 18px 0;
+    background: #262626;
+    margin-top: 28px;
+    color: #cfcfcf;
+}
+
+/* RESPONSIVE: Tablet + Phone */
+@media (max-width: 900px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -260px;
+        width: 260px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 80px;
+        padding-left: 18px;
+        gap: 20px;
+        background: linear-gradient(180deg, #ff004f, #b7003b);
+        transition: right .3s ease;
+        z-index: 999;
+    }
+
+    .nav-links a {
+        color: #fff;
+        font-size: 18px;
+    }
+
+    .menu-btn {
+        display: inline-flex;
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .close-item {
+        display: block;
+        position: absolute;
+        top: 18px;
+        right: 18px;
+    }
+
+    .hero {
+        margin-top: 90px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .sub-title {
+        font-size: 30px;
+    }
+
+    /* stack contact columns on smaller screens */
+    .contact-row {
+        flex-direction: column;
+    }
+
+    .contact-left,
+    .contact-right {
+        width: 100%;
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 14px;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .work img {
+        height: 180px;
+    }
+
+    .services-list {
+        grid-template-columns: 1fr;
+    }
+}
